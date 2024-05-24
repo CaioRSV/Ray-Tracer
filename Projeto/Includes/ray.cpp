@@ -1,29 +1,23 @@
-#include "ray.h"
-//#include "../../External/glm/glm.hpp"
+#include "ray.h"  
+#include "../../External/glm/glm.hpp"  
 
-// aqui estão as implementações da classe definida em ray.h
-ray::ray()
-{
-    
-}
-ray::ray(const glm::vec3 &a, const glm::vec3 &b)
-{
-    A = a;
-    B = b;
-}
+// Construtor padrão da classe ray
+ray::ray() {}
 
-glm::vec3 ray::location() const
-{
+// Construtor da classe ray com parâmetros
+ray::ray(const glm::vec3 &a, const glm::vec3 &b) : A(a), B(b) {}
+
+// Método para obter a localização da origem do raio
+glm::vec3 ray::location() const {
     return A;
-};
+}
 
-glm::vec3 ray::direction() const
-    {
-        return B;
-    }
+// Método para obter a direção do raio
+glm::vec3 ray::direction() const {
+    return B;
+}
 
-glm::vec3 ray::point_at_parameter(float t) const
-    {
-        return A + t * B;
-    }
-
+// Método para calcular o ponto em um raio em um determinado parâmetro 't'
+glm::vec3 ray::point_at_parameter(float t) const {
+    return A + t * B;
+}
