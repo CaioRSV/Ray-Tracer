@@ -4,6 +4,8 @@ Ray-Tracer built for the Graphic Processing course @CIn - UFPE
 
 Este é um simples ray caster implementado em C++ usando a biblioteca glm.
 
+A branch `BST` implementa, além de todas as funcionalidades básicas, uma Binary Search Tree para a partição do espaço e cálculo otimizado de interseções entre os objetos nele presentes.
+
 ## Como compilar e executar
 
 1. Certifique-se de ter um compilador C++ instalado no seu sistema. Recomendamos o g++ para sistemas Unix/Linux e o MinGW para Windows.
