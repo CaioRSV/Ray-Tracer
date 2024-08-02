@@ -21,7 +21,7 @@ A branch `BST` implementa, além de todas as funcionalidades básicas, uma Binar
 4. Compile o programa usando o seguinte comando:
 
     ```bash
-    g++ -o ray_tracer Projeto/main.cpp Projeto/Includes/ray.cpp Projeto/Includes/camera.cpp Projeto/Includes/sphere.cpp Projeto/Includes/plane.cpp Projeto/Includes/hitable_list.cpp Projeto/Includes/color.cpp Projeto/Includes/triangle.cpp Projeto/Includes/trianglemesh.cpp Projeto/Includes/transform.cpp Projeto/Includes/light.cpp Projeto/Includes/environment.cpp Projeto/Includes/material.cpp
+    g++ -o ray_tracer Projeto/main.cpp Projeto/Includes/ray.cpp Projeto/Includes/camera.cpp Projeto/Includes/sphere.cpp Projeto/Includes/plane.cpp Projeto/Includes/hitable_list.cpp Projeto/Includes/color.cpp Projeto/Includes/triangle.cpp Projeto/Includes/trianglemesh.cpp Projeto/Includes/transform.cpp Projeto/Includes/light.cpp Projeto/Includes/environment.cpp Projeto/Includes/material.cpp Projeto/Includes/texture.cpp
 
     ```
 

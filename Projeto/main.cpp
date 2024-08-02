@@ -13,6 +13,7 @@
 #include "./Includes/material.h"
 #include "./Includes/environment.h"
 #include "./Includes/light.h"
+#include "./Includes/stb_image.h" // https://github.com/nothings/stb/blob/master/stb_image.h
 #include <cmath>
 #include "float.h"
 #define M_PI 3.14159265358979323846  // Define a constante M_PI como o valor de pi
@@ -31,7 +32,7 @@ material* glass = new material(0.1f, 0.2f, 0.05f, 0.5f, 1.0f, 1.0f);
 material* mirror = new material(0.01f, 0.1f, 0.5f, 1.0f, 0.1f, 10.0f);
 
 
-material* mattePlane = new material(0.2f, 0.4f, 0.1f, 0.0f, 0.0f, 1.0f);
+material* mattePlane = new material(0.8f, 0.4f, 0.1f, 0.0f, 0.1f, 1.0f);
 material* glossyPlane = new material(0.8f, 0.4f, 0.5f, 0.3f, 0.0f, 30.0f);
 
 
@@ -200,9 +201,9 @@ int main() {
     list[1] = new sphere(glm::vec3(0, 0.0, -4), 1.5, blue, glass);
     list[2] = new sphere(glm::vec3(4, 0.0, -4), 1.5, black, mirror);
 
-    list[3] = new plane(glm::vec3(0, -1, 0), glm::vec3(0, 1, 0), slate, glossyPlane);
+    Texture* texture = new Texture("C:/Users/UFPE/Documents/CaioRSV/Ray-Tracer/Projeto/assets/missing.png");
+    list[3] = new plane(glm::vec3(0, -1, 0), glm::vec3(0, 1, 0), slate, mattePlane, texture);
 
-    
     // Cria o mundo com a lista de objetos
     hitable* world = new hitable_list(list, 4);
 

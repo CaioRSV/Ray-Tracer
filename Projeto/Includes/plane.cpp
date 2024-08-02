@@ -13,6 +13,16 @@ bool plane::hit(const ray& r, float t_min, float t_max, hit_record& rec) const {
         rec.normal = normal;  // Define o vetor normal ao ponto de interseção
         rec.cor = cor;  // Define a cor do objeto
 
+        // Aplicando textura caso possua
+        if (texture) {
+            float u = glm::dot(rec.p - plane_point, glm::vec3(1.0, 0.0, 0.0));
+            float v = glm::dot(rec.p - plane_point, glm::vec3(0.0, 0.0, 1.0));
+            rec.cor = texture->get_color(u, v);
+        } else {
+            rec.cor = cor;
+        }
+
+
         // informacoes sobre o material do objeto
         rec.kdif = objMaterial->kd;
         rec.kamb = objMaterial->ka;
