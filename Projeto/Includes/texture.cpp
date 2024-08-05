@@ -15,17 +15,16 @@ Texture::Texture(const char* filename) {
 }
 
 glm::vec3 Texture::get_color(float u, float v) const {
-    if (data.empty()) return glm::vec3(1.0f, 0.0f, 1.0f); // Bota uma cor meio roxa caso não tenha textura (falha de carregamento)
+    if (data.empty()) return glm::vec3(1.0f, 0.0f, 1.0f);
 
     // Normalizando coordenadas
     u = u - floor(u);
     v = v - floor(v);
 
+    // Ajustando coordenadas para evitar overflow
+    int x = static_cast<int>(u * width) % width;
+    int y = static_cast<int>((1 - v) * height) % height;
 
-    // Lógica para 'encaixar' imagem nas coordenadas
-    int x = static_cast<int>(u * width);
-    int y = static_cast<int>((1 - v) * height);
-    
     // Pegando valores RGB referente ao pixel onde está
     int index = (y * width + x) * colorSet;
     float r = data[index] / 255.0f;
