@@ -15,7 +15,7 @@ Texture::Texture(const char* filename) {
 }
 
 glm::vec3 Texture::get_color(float u, float v) const {
-    if (data.empty()) return glm::vec3(1.0f, 0.0f, 1.0f);
+    if (data.empty()) return glm::vec3(1.0f, 0.0f, 1.0f); // Bota uma cor meio roxa caso não tenha textura (falha de carregamento)
 
     // Normalizando coordenadas
     u = u - floor(u);
