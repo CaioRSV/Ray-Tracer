@@ -17,6 +17,24 @@ bool plane::hit(const ray& r, float t_min, float t_max, hit_record& rec) const {
         if (texture) {
             float u = glm::dot(rec.p - plane_point, glm::vec3(1.0, 0.0, 0.0));
             float v = glm::dot(rec.p - plane_point, glm::vec3(0.0, 0.0, 1.0));
+
+            // glm::vec3 reference_axis = glm::vec3(0.0, 1.0, 0.0); // Seta o plano Y por padrão
+            // if (glm::abs(glm::dot(normal, reference_axis)) > 0.999f) {
+            //     // Se tiver quase sendo paralelo, troca pro plano X como referencial
+            //     reference_axis = glm::vec3(1.0, 0.0, 0.0);
+            // }
+
+            // // Usa o referencial pra achar o vetor normal ao "X do plano da textura"
+            // glm::vec3 normal_vector_u = glm::normalize(glm::cross(normal, reference_axis));
+
+            // // Usa o "X" encontrado para definir o "Y do plano da textura"
+            // glm::vec3 normal_vector_v = glm::normalize(glm::cross(normal, normal_vector_u));
+
+            // // Faz a projeção do vetor da origem do plano até o ponto P
+            // // nos 'planos' gerados pelos vetores normais a eles (X/Y do plano)
+            // float u = glm::dot(rec.p - plane_point, normal_vector_u);
+            // float v = glm::dot(rec.p - plane_point, normal_vector_v);
+
             rec.cor = texture->get_color(u, v);
         } else {
             rec.cor = cor;
