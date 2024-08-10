@@ -4,7 +4,14 @@ Ray-Tracer built for the Graphic Processing course @CIn - UFPE
 
 Este é um simples ray caster implementado em C++ usando a biblioteca glm.
 
-A branch `BST` implementa, além de todas as funcionalidades básicas, uma Binary Search Tree para a partição do espaço e cálculo otimizado de interseções entre os objetos nele presentes.
+A branch `solid_texture_planes` implementa a adição de texturas sólidas baseadas em imagens nos planos do RayTracer, além de classes e métodos de textura necessárias para essa feature.
+
+Imagens demonstrativas:
+
+![demo1](https://i.imgur.com/kF2iH9q.png)
+![demo2](https://i.imgur.com/tyWJ6at.png)
+![demo3](https://i.imgur.com/2HVFXS7.png)
+
 
 ## Como compilar e executar
 
