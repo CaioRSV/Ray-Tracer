@@ -5,6 +5,7 @@
 
 // Função de carregamento da imagem com stb_image.h
 Texture::Texture(const char* filename) {
+    // Aloca na memória e retorna ponteiro pro address
     unsigned char* image = stbi_load(filename, &width, &height, &colorSet, 0);
     if (image) {
         data = std::vector<unsigned char>(image, image + width * height * colorSet);
@@ -23,8 +24,8 @@ glm::vec3 Texture::get_color(float u, float v) const {
     u = u - floor(u);
     v = v - floor(v);
 
-    int x = static_cast<int>(u * width) % width;
-    int y = static_cast<int>((1 - v) * height) % height; // Invertendo ordem pra começar a 'printar' de baixo pra cima
+    int x = static_cast<int>(u * width) % width; // Módulo para casos negativos principalmente
+    int y = static_cast<int>((v) * height) % height; // Pode se inverter a ordem (1-v) pra começar a 'printar' de baixo pra cima
 
     // Pegando valores RGB referente ao pixel onde está
     int index = (y * width + x) * colorSet; // Encontra o ponto na array do pixel escolhido, e com isso o item das cores

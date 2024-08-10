@@ -202,7 +202,7 @@ int main() {
     list[2] = new sphere(glm::vec3(4, 0.0, -4), 1.5, black, mirror);
 
     Texture* texture = new Texture("C:/Users/caiox/Documents/Ray-Tracer/Projeto/assets/missing.png");
-    list[3] = new plane(glm::vec3(0, -1, 0), glm::vec3(0, 1, 0), slate, mattePlane, texture);
+    list[3] = new plane(glm::vec3(0, -1, 0), glm::vec3(0, 1, 0), slate, glossyPlane, texture);
 
     // Cria o mundo com a lista de objetos
     hitable* world = new hitable_list(list, 4);
