@@ -50,15 +50,26 @@ bool triangle::hit(const ray &r, float t_min, float t_max, hit_record &rec) cons
             rec.p = p;
 
             // Verifica a direção da normal em relação ao raio
-            glm::vec3 normal = this->normal;
-            if (glm::dot(normal, r.direction()) > 0) {
-                normal = -normal;
+            glm::vec3 hit_normal = this->normal;
+            if (glm::dot(hit_normal, r.direction()) > 0) {
+                hit_normal = -hit_normal;
             }
 
-            // Parâmetro t e ponto de interseção são atualizados
-            rec.normal = normal; // Define o vetor normal ao ponto de interseção
-            rec.cor = cor; // Define a cor do triângulo
-            return true; // Retorna true pois houve uma interseção
+            // Atualiza o registro de interseção
+            rec.normal = hit_normal;  // Define o vetor normal ao ponto de interseção
+            rec.cor = cor;            // Define a cor do triângulo
+
+            // Atualiza informações do material para o registro de interseção
+            rec.kdif = objMaterial->kd;
+            rec.kamb = objMaterial->ka;
+            rec.kespc = objMaterial->ks;
+            rec.rug = objMaterial->n;
+
+            // Info dos materiais para a entrega 5, no momento da entrega 4 usaremos valores 0
+            rec.kref = objMaterial->kr;
+            rec.ktrans = objMaterial->kt;
+
+            return true;  // Retorna true pois houve uma interseção
         }
         return false; // Retorna false caso o ponto de interseção está fora do triângulo
     }
