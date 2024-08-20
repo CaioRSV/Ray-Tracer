@@ -1,0 +1,69 @@
+Internal Node [Depth 0]:
+  Splitting Plane:
+    Normal = (0, 0, 1)
+    d = -1
+  Front Node:
+  Internal Node [Depth 1]:
+    Splitting Plane:
+      Normal = (0, 0, 1)
+      d = -1
+    Front Node:
+    Internal Node [Depth 2]:
+      Splitting Plane:
+        Normal = (0, 0, 1)
+        d = -1
+      Front Node:
+      Internal Node [Depth 3]:
+        Splitting Plane:
+          Normal = (0, 0, 1)
+          d = -1
+        Front Node:
+        Internal Node [Depth 4]:
+          Splitting Plane:
+            Normal = (0, 0, 1)
+            d = -1
+          Front Node:
+          Internal Node [Depth 5]:
+            Splitting Plane:
+              Normal = (0, 0, 1)
+              d = -1
+            Front Node:
+            Internal Node [Depth 6]:
+              Splitting Plane:
+                Normal = (0, 0, 1)
+                d = -1
+              Front Node:
+              Internal Node [Depth 7]:
+                Splitting Plane:
+                  Normal = (0, 0, 1)
+                  d = -1
+                Front Node:
+                Internal Node [Depth 8]:
+                  Splitting Plane:
+                    Normal = (0, 0, 1)
+                    d = -1
+                  Front Node:
+                  Internal Node [Depth 9]:
+                    Splitting Plane:
+                      Normal = (0, 0, 1)
+                      d = -1
+                    Front Node:
+                    Leaf Node [Depth 10]:
+                      Triangles (3):
+                        Triangle: a(-1, 0, -1), b(1, 0, -1), c(0, 1, -1)
+                        Triangle: a(-0.5, 0, -0.8), b(-0.3, 1, -1), c(-0.42, 0, -1)
+                        Triangle: a(-0.3, 1, -1), b(-0.42, 0, -1), c(-0.3, 1, -1)
+                    Back Node:
+                  Back Node:
+                Back Node:
+              Back Node:
+            Back Node:
+          Back Node:
+        Back Node:
+      Back Node:
+    Back Node:
+  Back Node:
+  Leaf Node [Depth 1]:
+    Triangles (2):
+      Triangle: a(0, -0.2, -1.5), b(2, -0.2, -1), c(1, 0.8, -1.5)
+      Triangle: a(-0.3, 0, -1.3), b(-0.42, 0, -1), c(-0.3, 1, -1)
