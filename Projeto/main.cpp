@@ -339,7 +339,7 @@ void logBSPNode(std::ofstream& file, BSPNode* node, int depth = 0) {
 
     if (node->triangles.empty()) {
         // Nodes disponíveis a serem analisados para bipartição
-        file << indent << "Internal Node [Depth " << depth << "]:\n";
+        file << indent << "Node [Depth " << depth << "]:\n";
         file << indent << "  Splitting Plane:\n";
         file << indent << "    Normal = (" 
              << node->split_plane_normal.x << ", " 
@@ -391,14 +391,7 @@ int main() {
             mattePlane
         )
     );
-    triangles.push_back(
-        // new triangle(
-        //     glm::vec3(-0.8, 0, -0.8),
-        //     glm::vec3(-0.6, 0, -1.3),
-        //     glm::vec3(-0.6, 1, -1.0),
-        //     green,
-        //     mattePlane
-        // )  
+    triangles.push_back( 
         new triangle(
             glm::vec3(0, -0.2, -1.5),
             glm::vec3(2, -0.2, -1.0),
@@ -427,6 +420,7 @@ int main() {
 
     // Cria uma lista de objetos hitable, incluindo duas esferas, dois planos e duas malhas
 
+
     int sizeList = 7;
 
     hitable* list[sizeList];
@@ -440,98 +434,98 @@ int main() {
     list[0] = new sphere(glm::vec3(-4, -2.0, 2), 1.5, red, matte);
     list[1] = new sphere(glm::vec3(0, -2.0, 2), 1.5, blue, glass);
     list[2] = new sphere(glm::vec3(4, -2.0, 2), 1.5, black, mirror);
- 
-    // list[0] = new sphere(glm::vec3(-4, 0.0, -1), 1.5, red, matte);
-    // list[1] = new sphere(glm::vec3(0, 0.0, -1), 1.5, blue, glass);
-    // list[2] = new sphere(glm::vec3(4, 0.0, -1), 1.5, black, mirror);
-
     list[3] = new plane(glm::vec3(0, -1, 0), glm::vec3(0, 1, 0), slate, glossyPlane);
 
-    list[4] = new triangle(
+
+    int renderOption = 2; // 0: All | 1: Front Nodes | 2: Back Nodes
+
+    // ALL ---------------------------------------------------------------------------- ####################
+
+    if(renderOption==0){
+        list[4] = new triangle(
+            glm::vec3(-1, 0, -1),
+            glm::vec3(1, 0, -1),
+            glm::vec3(0, 1, -1),
+            red,
+            glass
+        );
+
+        list[5] = new triangle(
+            glm::vec3(0, -0.2, -1.5),
+            glm::vec3(2, -0.2, -1.0),
+            glm::vec3(1, 0.8, -1.5),
+            blue,
+            glass
+        );
+
+        list[6] = new triangle(
+            glm::vec3(-0.5, 0, -0.8),
+            glm::vec3(-0.3, 0, -1.3),
+            glm::vec3(-0.3, 1, -1.0),
+            green,
+            glass
+        );
+    }
+
+    // FRONT NODES ---------------------------------------------------------------------------- ####################
+    
+    else if(renderOption==1){
+        list[4] = new triangle(
         glm::vec3(-1, 0, -1),
         glm::vec3(1, 0, -1),
         glm::vec3(0, 1, -1),
-        red,
-        glass
-    );
-
-    list[5] = new triangle(
-        // glm::vec3(-0.8, 0, -0.8),
-        // glm::vec3(-0.6, 0, -1.3),
-        // glm::vec3(-0.6, 1, -1.0),
-        // green,
-        // mattePlane
-        glm::vec3(0, -0.2, -1.5),
-        glm::vec3(2, -0.2, -1.0),
-        glm::vec3(1, 0.8, -1.5),
-        blue,
-        glass
-    );
-
-    list[6] = new triangle(
-        glm::vec3(-0.5, 0, -0.8),
-        glm::vec3(-0.3, 0, -1.3),
-        glm::vec3(-0.3, 1, -1.0),
-        green,
-        glass
-    );
-
-    // ---- Splitting visuals
-
-    list[7] = new triangle(
-        glm::vec3(0, -0.2, -1.5),
-        glm::vec3(2, -0.2, -1),
-        glm::vec3(1, 0.8, -1.5),
         green,
         matte
-    );
+        );
 
+        list[5] = new triangle(
+            glm::vec3(-0.5, 0, -0.8),
+            glm::vec3(-0.3, 1, -1),
+            glm::vec3(-0.42, 0, -1),
+            blue,
+            matte
+        );
 
-    list[8] = new triangle(
-        glm::vec3(-0.3, 0, -1.3),
-        glm::vec3(-0.42, 0, -1),
-        glm::vec3(-0.3, 1, -1),
-        blue,
-        matte
-    );
+        list[6] = new triangle(
+            glm::vec3(-0.3, 1, -1),
+            glm::vec3(-0.42, 0, -1),
+            glm::vec3(-0.3, 1, -1),
+            red,
+            glass
+        );
+    }
 
-    list[9] = new triangle(
-        glm::vec3(-0.3, 1, -1),
-        glm::vec3(-0.42, 0, -1),
-        glm::vec3(-0.3, 1, -1),
-        red,
-        glass
-    );
+    // Back Nodes ---------------------------------------------------------------------------- ####################
     
-    // // Define vertices and triangle indices for the mesh
-    // glm::vec3 vertices[] = {
-    //     glm::vec3(-1, 0, -3),
-    //     glm::vec3(1, 0, -3),
-    //     glm::vec3(0, 1, -3),
-    //     glm::vec3(-1, 0, -2),
-    //     glm::vec3(1, 0, -2),
-    //     glm::vec3(0, 1, -2),
-    //     glm::vec3(-1, 0, -1),
-    //     glm::vec3(1, 0, -1),
-    //     glm::vec3(0, 1, -1)
-    // };
+    else{
+        list[4] = new triangle(
+            glm::vec3(-1, 1000, -1),
+            glm::vec3(1, 1000, -1),
+            glm::vec3(0, 1000, -1),
+            green,
+            matte
+        );
 
-    // std::tuple<int, int, int> indices[] = {
-    //     std::make_tuple(0, 1, 2),
-    //     std::make_tuple(3, 4, 5),
-    //     std::make_tuple(6, 7, 8)
-    // };
 
-    // color red(1.0f, 0.0f, 0.0f);
-    // color green(0.0f, 1.0f, 0.0f);
-    // color blue(0.0f, 0.0f, 1.0f);
-    // material matte; // Placeholder material
+        list[5] = new triangle(
+            glm::vec3(0, -0.2, -1.5),
+            glm::vec3(2, -0.2, -1),
+            glm::vec3(1, 0.8, -1.5),
+            blue,
+            matte
+        );
 
-    // // Create the triangle mesh
-    // tmesh* mesh = new tmesh(9, 3, vertices, indices, red, &matte);
+        list[6] = new triangle(
+            glm::vec3(-0.3, 0, -1.3),
+            glm::vec3(-0.42, 0, -1),
+            glm::vec3(-0.3, 1, -1),
+            red,
+            glass
+        );  
+    }
 
-    // list[4] = mesh;
-    
+    // ----------------------------------------------------------------------------------- ####################
+
     // Cria o mundo com a lista de objetos
     hitable* world = new hitable_list(list, sizeList);
 
@@ -539,8 +533,6 @@ int main() {
     scene_lights.push_back(light_point2);
     scene_lights.push_back(light_point3);
 
-
-    
     camera cam(origin, lookingat, vup, ny, nx, distance);  // Cria uma câmera
 
     // Loop para gerar a imagem linha por linha

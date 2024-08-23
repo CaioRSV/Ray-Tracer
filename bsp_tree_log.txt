@@ -1,49 +1,49 @@
-Internal Node [Depth 0]:
+Node [Depth 0]:
   Splitting Plane:
     Normal = (0, 0, 1)
     d = -1
   Front Node:
-  Internal Node [Depth 1]:
+  Node [Depth 1]:
     Splitting Plane:
       Normal = (0, 0, 1)
       d = -1
     Front Node:
-    Internal Node [Depth 2]:
+    Node [Depth 2]:
       Splitting Plane:
         Normal = (0, 0, 1)
         d = -1
       Front Node:
-      Internal Node [Depth 3]:
+      Node [Depth 3]:
         Splitting Plane:
           Normal = (0, 0, 1)
           d = -1
         Front Node:
-        Internal Node [Depth 4]:
+        Node [Depth 4]:
           Splitting Plane:
             Normal = (0, 0, 1)
             d = -1
           Front Node:
-          Internal Node [Depth 5]:
+          Node [Depth 5]:
             Splitting Plane:
               Normal = (0, 0, 1)
               d = -1
             Front Node:
-            Internal Node [Depth 6]:
+            Node [Depth 6]:
               Splitting Plane:
                 Normal = (0, 0, 1)
                 d = -1
               Front Node:
-              Internal Node [Depth 7]:
+              Node [Depth 7]:
                 Splitting Plane:
                   Normal = (0, 0, 1)
                   d = -1
                 Front Node:
-                Internal Node [Depth 8]:
+                Node [Depth 8]:
                   Splitting Plane:
                     Normal = (0, 0, 1)
                     d = -1
                   Front Node:
-                  Internal Node [Depth 9]:
+                  Node [Depth 9]:
                     Splitting Plane:
                       Normal = (0, 0, 1)
                       d = -1

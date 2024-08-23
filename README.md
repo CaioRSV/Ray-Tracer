@@ -4,7 +4,18 @@ Ray-Tracer built for the Graphic Processing course @CIn - UFPE
 
 Este é um simples ray caster implementado em C++ usando a biblioteca glm.
 
-A branch `BST` implementa, além de todas as funcionalidades básicas, uma Binary Search Tree para a partição do espaço e cálculo otimizado de interseções entre os objetos nele presentes.
+A branch `BSP` implementa, além de todas as funcionalidades básicas, uma Binary Search Tree para a partição do espaço e cálculo otimizado de interseções entre os objetos nele presentes.
+
+# Demo
+
+## Plotagem original dos triângulos que foram bipartidos
+![Versão inicial](all_triangles.png)
+
+## Front Nodes do triângulo central de referência
+![Front-Nodes](front_nodes.png)
+
+## Back Nodes do triângulo central de referência
+![Back-Nodes](back_nodes.png)
 
 ## Como compilar e executar
 
